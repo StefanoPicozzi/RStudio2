@@ -4,7 +4,11 @@ MAINTAINER Stefano Picozzi
 
 USER root
 
-#RUN yum makecache fast
+RUN yum clean packages
+RUN yum clean metadata
+RUN yum clean dbcache
+RUN yum clean all
+RUN yum makecache
 
 RUN yum -y install epel-release
 RUN yum -y install R
@@ -38,14 +42,14 @@ RUN cd packages; R CMD INSTALL Rdrools6/Rdrools6_0.0.1.tar.gz
 # RUN cd packages; wget https://github.com/StefanoPicozzi/Rdrools6/blob/master/Rdrools6_0.0.1.tar.gz
 # RUN cd packages; R CMD INSTALL Rdrools6_0.0.1.tar.gz
 
-RUN cd packages; wget http://cran.rstudio.com/src/contrib/stringi_0.5-5.tar.gz
-RUN cd packages; R CMD INSTALL stringi_0.5-5.tar.gz
+RUN cd packages; wget http://cran.rstudio.com/src/contrib/stringi_1.0-1.tar.gz
+RUN cd packages; R CMD INSTALL stringi_1.0-1.tar.gz
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/magrittr_1.5.tar.gz
 RUN cd packages; R CMD INSTALL magrittr_1.5.tar.gz
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/colorspace_1.2-6.tar.gz
 RUN cd packages; R CMD INSTALL colorspace_1.2-6.tar.gz
-RUN cd packages; wget http://cran.rstudio.com/src/contrib/Rcpp_0.12.1.tar.gz
-RUN cd packages; R CMD INSTALL Rcpp_0.12.1.tar.gz
+RUN cd packages; wget http://cran.rstudio.com/src/contrib/Rcpp_0.12.2.tar.gz
+RUN cd packages; R CMD INSTALL Rcpp_0.12.2.tar.gz
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/stringr_1.0.0.tar.gz
 RUN cd packages; R CMD INSTALL stringr_1.0.0.tar.gz
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/RColorBrewer_1.1-2.tar.gz
@@ -87,8 +91,8 @@ RUN cd packages; R CMD INSTALL jsonlite_0.9.17.tar.gz
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/mime_0.4.tar.gz
 RUN cd packages; R CMD INSTALL mime_0.4.tar.gz
 
-RUN cd packages; wget http://cran.rstudio.com/src/contrib/curl_0.9.3.tar.gz
-RUN cd packages; R CMD INSTALL curl_0.9.3.tar.gz
+RUN cd packages; wget http://cran.rstudio.com/src/contrib/curl_0.9.4.tar.gz
+RUN cd packages; R CMD INSTALL curl_0.9.4.tar.gz
 
 RUN cd packages; wget http://cran.rstudio.com/src/contrib/R6_2.1.1.tar.gz
 RUN cd packages; R CMD INSTALL R6_2.1.1.tar.gz
