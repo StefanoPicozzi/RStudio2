@@ -24,3 +24,9 @@ Firefox http://IP_ADDRESS:8787
 
 login using credentials guest/guest
 
+For OpenShift check that:
+
+$ oc edit scc restricted
+runAsUser
+type: RunAsAny
+
